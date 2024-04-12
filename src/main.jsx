@@ -10,6 +10,8 @@ import Main from './Pages/Main/Main';
 import Home from './Pages/Home/Home';
 import UpdateProfile from './Pages/UpdateProfile/UpdateProfile';
 import UserProfile from './Pages/UserProfile/UserProfile';
+import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: '/userProfile',
         element: <UserProfile></UserProfile>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
       },
     ]
   },

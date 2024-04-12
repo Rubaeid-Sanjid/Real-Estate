@@ -1,4 +1,4 @@
-import Slider from "../../Component/Navbar/Banner/Slider";
+import Slider from "../../Component/Banner/Slider";
 
 
 const Home = () => {
