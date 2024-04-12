@@ -1,9 +1,10 @@
+import Slider from "../../Component/Navbar/Banner/Slider";
 
 
 const Home = () => {
     return (
         <div>
-            THis is Home
+            <Slider></Slider>
         </div>
     );
 };
