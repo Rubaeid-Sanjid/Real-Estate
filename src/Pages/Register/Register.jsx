@@ -1,6 +1,23 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router-dom";
+import auth from "../../Firebase/firebaseConfig";
 
 const Register = () => {
+
+    const handleRegister = (e)=>{
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password);
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(result=>{
+            console.log(result.user);
+        })
+        .catch(error =>{
+            console.log(error.message);
+        })
+    }
+
     return (
         <div
       className="hero rounded-2xl mt-12"
@@ -15,13 +32,14 @@ const Register = () => {
           <h1 className="text-5xl font-bold">Register now!</h1>
         </div>
         <div className="card shrink-0 w-96 shadow-2xl bg-base-100">
-          <form className="card-body">
+          <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
               </label>
               <input
                 type="text"
+                name="name"
                 placeholder="name"
                 className="input input-bordered"
                 required
@@ -33,6 +51,7 @@ const Register = () => {
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="email"
                 className="input input-bordered"
                 required
@@ -44,6 +63,7 @@ const Register = () => {
               </label>
               <input
                 type="text"
+                name="photoURL"
                 placeholder="photo URL"
                 className="input input-bordered"
                 required
@@ -55,6 +75,7 @@ const Register = () => {
               </label>
               <input
                 type="password"
+                name="password"
                 placeholder="password"
                 className="input input-bordered"
                 required
