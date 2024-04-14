@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "estate_title": "Spacious Family Home",
+    "segment_name": "Single-family homes",
+    "description": "Beautiful single-family home with a large backyard and modern amenities. Perfect for families looking for space and comfort.",
+    "price": "$450,000",
+    "status": "sale",
+    "area": "3000 sq ft",
+    "location": "Suburbia Estates",
+    "facilities": ["Backyard", "Modern Kitchen", "Master Suite"],
+    "image": "family_home_image.jpg"
+  },
+  {
+    "id": 2,
+    "estate_title": "Cozy Townhouse",
+    "segment_name": "Townhouses",
+    "description": "Charming townhouse in a quiet neighborhood. Features include hardwood floors, updated kitchen, and a private patio.",
+    "price": "$300,000",
+    "status": "sale",
+    "area": "1800 sq ft",
+    "location": "Oakwood Terrace",
+    "facilities": ["Hardwood Floors", "Private Patio", "Community Pool"],
+    "image": "townhouse_image.jpg"
+  },
+  {
+    "id": 3,
+    "estate_title": "Modern Urban Apartment",
+    "segment_name": "Apartments",
+    "description": "Sleek and stylish apartment in a vibrant urban setting. Enjoy city views and access to amenities such as a fitness center and rooftop terrace.",
+    "price": "$2,000/month",
+    "status": "rent",
+    "area": "1000 sq ft",
+    "location": "Downtown Lofts",
+    "facilities": ["City Views", "Fitness Center", "Rooftop Terrace"],
+    "image": "urban_apartment_image.jpg"
+  },
+  {
+    "id": 4,
+    "estate_title": "Student Housing Complex",
+    "segment_name": "Student housing",
+    "description": "Modern student housing complex located near campus. Fully furnished units with study areas, communal spaces, and onsite laundry facilities.",
+    "price": "$800/month (per student)",
+    "status": "rent",
+    "area": "Varies",
+    "location": "Campus Commons",
+    "facilities": ["Fully Furnished", "Study Areas", "Onsite Laundry"],
+    "image": "student_housing_image.jpg"
+  },
+  {
+    "id": 5,
+    "estate_title": "Senior Living Community",
+    "segment_name": "Senior living communities",
+    "description": "Retirement community offering independent living options for seniors. Amenities include fitness center, library, and social activities.",
+    "price": "$3,500/month",
+    "status": "rent",
+    "area": "Varies",
+    "location": "Sunset Meadows",
+    "facilities": ["Fitness Center", "Library", "Social Activities"],
+    "image": "senior_living_image.jpg"
+  },
+  {
+    "id": 6,
+    "estate_title": "Vacation Rental Retreat",
+    "segment_name": "Vacation rentals",
+    "description": "Relaxing vacation rental with stunning ocean views. Features include private beach access, outdoor dining area, and spacious living spaces.",
+    "price": "$300/night",
+    "status": "rent",
+    "area": "2000 sq ft",
+    "location": "Oceanfront Oasis",
+    "facilities": ["Private Beach Access", "Outdoor Dining", "Ocean Views"],
+    "image": "vacation_rental_image.jpg"
+  }
+]
