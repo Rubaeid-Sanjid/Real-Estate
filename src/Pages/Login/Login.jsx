@@ -3,49 +3,51 @@ import googleLogo from "../../assets/google-logo-image.png";
 import facebookLogo from "../../assets/Facebook-logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../Component/AuthProvider/AuthProvider";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
 
-  const {loginUser, loginWithApps} = useContext(AuthContext);
+  const { loginUser, loginWithApps } = useContext(AuthContext);
 
-  const handleLogin = (e)=>{
+  const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
 
     loginUser(email, password)
-    .then(result =>{
-      console.log(result.user);
-    })
-    .catch(error=>{
-      console.log(error.message);
-      toast(error.message);
-    })
-  }
+      .then((result) => {
+        console.log(result.user);
+        e.target.reset();
+      })
+      .catch((error) => {
+        console.log(error.message);
+        toast(error.message);
+      });
+  };
 
-  const handleGoogleLogin =()=>{
+  const handleGoogleLogin = () => {
     loginWithApps(googleProvider)
-    .then(result=>{
-      console.log(result.user);
-    })
-    .catch(error=>{
-      console.log(error.message);
-    })
-  }
-  const handleFacebookLogin =()=>{
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleFacebookLogin = () => {
     loginWithApps(facebookProvider)
-    .then(result=>{
-      console.log(result.user);
-    })
-    .catch(error=>{
-      console.log(error.message);
-    })
-  }
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <div
@@ -90,26 +92,36 @@ const Login = () => {
                 className="input input-bordered"
                 required
               />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
             <div className="">
-              <button onClick={handleGoogleLogin} className="w-full px-4 py-2 border flex justify-center gap-2 rounded-lg mb-2">
+              <button
+                onClick={handleGoogleLogin}
+                className="w-full px-4 py-2 border flex justify-center gap-2 rounded-lg mb-2"
+              >
                 <img className="w-6 h-6" src={googleLogo} alt="google logo" />
                 <span>Login with Google</span>
               </button>
-              <button onClick={handleFacebookLogin} className="w-full px-4 py-2 border flex justify-center gap-2 rounded-lg">
-                <img className="w-6 h-6" src={facebookLogo} alt="facebook logo" />
+              <button
+                onClick={handleFacebookLogin}
+                className="w-full px-4 py-2 border flex justify-center gap-2 rounded-lg"
+              >
+                <img
+                  className="w-6 h-6"
+                  src={facebookLogo}
+                  alt="facebook logo"
+                />
                 <span>Login with Facebook</span>
               </button>
             </div>
-            <h4>Do not have any account ? <Link className="underline" to={"/register"}>Register Now</Link></h4>
+            <h4>
+              Do not have any account ?
+              <Link className="underline" to={"/register"}>
+                Register Now
+              </Link>
+            </h4>
           </form>
         </div>
       </div>

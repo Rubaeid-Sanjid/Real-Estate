@@ -1,12 +1,27 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/house_1018624.png";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
+  const { user, logoutUser } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logoutUser()
+      .then(() => {
+        toast("Logged Out Successfully.");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   const navlink = (
     <>
       <NavLink to={"/"}>Home</NavLink>
       <NavLink to={"/updateProfile"}>Update Profile</NavLink>
-      <NavLink to={"/userProfile"}>User Profile</NavLink>
+      {user && <NavLink to={"/userProfile"}>User Profile</NavLink>}
     </>
   );
   return (
@@ -37,8 +52,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex">
-          <img className="w-[10%]" src={logo} alt="home" />
-          <button className="px-4 rounded-xl btn-ghost text-xl font-bold text-left">
+          <img className="w-14 h-14" src={logo} alt="home" />
+          <button className="rounded-xl btn-ghost text-2xl font-bold text-left">
             Residence
             <br />
             Realm
@@ -49,10 +64,20 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 gap-4">{navlink}</ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login">
-          <button className="btn bg-[#486df0] text-white">Login</button>
-        </Link>
+        {user ? (
+          <div className="flex gap-2 items-center">
+            <h3>{user.email}</h3>
+            <button onClick={handleLogout} className="btn">
+              Logout
+            </button>
+          </div>
+        ) : (
+          <Link to="/login">
+            <button className="btn bg-[#486df0] text-white">Login</button>
+          </Link>
+        )}
       </div>
+      <ToastContainer />
     </div>
   );
 };

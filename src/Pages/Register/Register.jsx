@@ -1,43 +1,43 @@
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Component/AuthProvider/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
 
-    const {createUser} = useContext(AuthContext);
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-    const handleRegister = (e)=>{
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-
-        if(password.length < 6){
-            toast("Password length must be at least 6 character.");
-            return;
-        }
-        if(!/[A-Z]/.test(password)){
-            toast("Must have an Uppercase letter in the password.");
-            return;
-        }
-        if(!/[a-z]/.test(password)){
-            toast("Must have a Lowercase letter in the password.");
-            return;
-        }
-        
-        createUser(email, password)
-        .then(result=>{
-            console.log(result.user);
-            toast("Successfully registered.");
-        })
-        .catch(error =>{
-            console.log(error.message);
-        })
+    if (password.length < 6) {
+      toast("Password length must be at least 6 character.");
+      return;
+    }
+    if (!/[A-Z]/.test(password)) {
+      toast("Must have an Uppercase letter in the password.");
+      return;
+    }
+    if (!/[a-z]/.test(password)) {
+      toast("Must have a Lowercase letter in the password.");
+      return;
     }
 
-    return (
-        <div
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        toast("Successfully registered.");
+        e.target.reset();
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  return (
+    <div
       className="hero rounded-2xl mt-12"
       style={{
         backgroundImage:
@@ -98,23 +98,22 @@ const Register = () => {
                 className="input input-bordered"
                 required
               />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>
-            
-            <h4>Already have an account ? <Link className="underline" to={"/login"}>Login</Link></h4>
+            <h4>
+              Already have an account ?
+              <Link className="underline" to={"/login"}>
+                Login
+              </Link>
+            </h4>
           </form>
         </div>
       </div>
       <ToastContainer />
     </div>
-    );
+  );
 };
 
 export default Register;
