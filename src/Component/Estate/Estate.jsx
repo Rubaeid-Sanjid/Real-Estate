@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 
 const Estate = ({ estate }) => {
-    const {estate_title} = estate;
+    const {estate_title, image} = estate;
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
         <img
-          src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+          src={image}
           alt="Shoes"
         />
       </figure>
