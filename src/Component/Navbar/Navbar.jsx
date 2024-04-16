@@ -18,7 +18,7 @@ const Navbar = () => {
       });
   };
   const navlink = (
-    <div className="text-lg font-semibold">
+    <div className="text-lg font-semibold flex gap-4">
       <NavLink to={"/"}>Home</NavLink>
       <NavLink to={"/updateProfile"}>Update Profile</NavLink>
       {user && <NavLink to={"/userProfile"}>User Profile</NavLink>}

@@ -13,6 +13,7 @@ import UserProfile from './Pages/UserProfile/UserProfile';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import AuthProvider from './Component/AuthProvider/AuthProvider';
+import EstateDetails from './Pages/EstateDetails/EstateDetails';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: ()=>fetch('estate.JSON')
+        loader: ()=>fetch('../estate.JSON')
       },
       {
         path: '/updateProfile',
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/estate/:id',
+        element: <EstateDetails></EstateDetails>,
+        loader: ()=>fetch('../estate.JSON')
       },
     ]
   },

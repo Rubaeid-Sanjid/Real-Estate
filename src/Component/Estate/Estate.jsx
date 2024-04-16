@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Estate = ({ estate }) => {
   const {
@@ -38,11 +39,20 @@ const Estate = ({ estate }) => {
           ))}
         </div>
 
+        <div className="flex justify-between pt-2 border-t-2">
+            <h3 className="font-medium">Area</h3>
+            <h3>{area}</h3>
+          </div>
+
         <div className="flex justify-between py-2 border-y-2 text-lg text-[#486df0]">
           <h3 className="font-medium">For {status}</h3>
           <h3 className="font-medium">{price}</h3>
         </div>
-        <button className="btn bg-[#486df0] text-white">View Details</button>
+        <button className="btn bg-[#486df0] text-white text-lg">
+        <Link to={`/estate/${id}`}>
+        View Property
+        </Link>
+        </button>
       </div>
     </div>
   );
