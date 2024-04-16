@@ -50,8 +50,9 @@ const Login = () => {
   };
 
   return (
-    <div
-      className="hero rounded-2xl mt-12"
+    <div className="container mx-auto px-8 my-12">
+      <div
+      className="hero rounded-2xl"
       style={{
         backgroundImage:
           "url(https://i.ibb.co/5RMkW1Z/analog-landscape-city-with-buildings-1.jpg)",
@@ -94,7 +95,7 @@ const Login = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn bg-[#486df0] text-white text-lg">Login</button>
             </div>
             <div className="">
               <button
@@ -126,6 +127,7 @@ const Login = () => {
         </div>
       </div>
       <ToastContainer />
+    </div>
     </div>
   );
 };

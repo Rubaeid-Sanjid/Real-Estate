@@ -14,31 +14,37 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loader, setLoader] = useState(true);
 
   const createUser = (email, password) => {
+    setLoader(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const loginUser = (email, password) => {
+    setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const loginWithApps = (provider) => {
+    setLoader(true);
     return signInWithPopup(auth, provider);
+  };
+
+  const logoutUser = () => {
+    setLoader(true);
+    return signOut(auth);
   };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoader(false);
     });
     return () => {
       unSubscribe();
     };
   }, []);
-
-  const logoutUser = () => {
-    return signOut(auth);
-  };
 
   const authInfo = {
     createUser,
@@ -46,6 +52,7 @@ const AuthProvider = ({ children }) => {
     user,
     loginWithApps,
     logoutUser,
+    loader
   };
 
   return (

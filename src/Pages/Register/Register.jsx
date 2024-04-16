@@ -37,8 +37,9 @@ const Register = () => {
   };
 
   return (
-    <div
-      className="hero rounded-2xl mt-12"
+    <div className="container mx-auto px-8 my-12">
+      <div
+      className="hero rounded-2xl"
       style={{
         backgroundImage:
           "url(https://i.ibb.co/W0YYPyw/low-angle-greyscale-shot-residential-buildings-opposite-each-other-1.jpg)",
@@ -100,7 +101,7 @@ const Register = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Register</button>
+              <button className="btn bg-[#486df0] text-white text-lg">Register</button>
             </div>
             <h4>
               Already have an account ?
@@ -112,6 +113,7 @@ const Register = () => {
         </div>
       </div>
       <ToastContainer />
+    </div>
     </div>
   );
 };

@@ -6,7 +6,7 @@ const EstateDetails = () => {
   const { id } = useParams();
   const idInt = parseInt(id);
 
-  const estate = estates.find((estate) => estate.id === idInt);
+  const cuurentEstate = estates.find((estate) => estate.id === idInt);
 
   const {
     image,
@@ -24,7 +24,7 @@ const EstateDetails = () => {
     year_built,
     lot_size,
     hoa_fee,
-  } = estate;
+  } = cuurentEstate;
 
   return (
     <div className="container mx-auto px-8 my-8">
