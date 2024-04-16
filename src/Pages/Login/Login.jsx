@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 import googleLogo from "../../assets/google-logo-image.png";
 import facebookLogo from "../../assets/Facebook-logo.png";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Component/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
 const Login = () => {
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const { loginUser, loginWithApps } = useContext(AuthContext);
 
@@ -82,17 +85,22 @@ const Login = () => {
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
                 required
               />
+              <div onClick={()=>setShowPassword(!showPassword)} className="absolute top-2/3 left-[90%] cursor-pointer">
+              {
+                showPassword ? <FaRegEyeSlash /> : <FaRegEye />
+              }
+              </div>
             </div>
             <div className="form-control mt-6">
               <button className="btn bg-[#486df0] text-white text-lg">Login</button>

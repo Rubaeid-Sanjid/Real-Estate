@@ -1,10 +1,13 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Component/AuthProvider/AuthProvider";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const { createUser } = useContext(AuthContext);
 
   const handleRegister = (e) => {
@@ -88,17 +91,22 @@ const Register = () => {
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
                 required
               />
+              <div onClick={()=>setShowPassword(!showPassword)} className="absolute top-2/3 left-[90%] cursor-pointer">
+              {
+                showPassword ? <FaRegEyeSlash /> : <FaRegEye />
+              }
+              </div>
             </div>
             <div className="form-control mt-6">
               <button className="btn bg-[#486df0] text-white text-lg">Register</button>
