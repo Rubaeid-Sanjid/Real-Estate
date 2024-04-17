@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Component/AuthProvider/AuthProvider";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -51,6 +52,9 @@ const Register = () => {
 
   return (
     <div className="container mx-auto px-8 my-12">
+      <Helmet>
+        <title>Residence Realm | Register</title>
+      </Helmet>
       <div
         className="hero rounded-2xl"
         style={{

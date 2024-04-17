@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const googleProvider = new GoogleAuthProvider();
@@ -25,6 +26,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         e.target.reset();
+        toast("Login Successful.");
         navigate("/");
       })
       .catch((error) => {
@@ -37,6 +39,7 @@ const Login = () => {
     loginWithApps(googleProvider)
       .then((result) => {
         console.log(result.user);
+        toast("Login Successful.");
         navigate("/");
       })
       .catch((error) => {
@@ -48,6 +51,7 @@ const Login = () => {
     loginWithApps(facebookProvider)
       .then((result) => {
         console.log(result.user);
+        toast("Login Successful.");
         navigate("/");
       })
       .catch((error) => {
@@ -57,6 +61,9 @@ const Login = () => {
 
   return (
     <div className="container mx-auto px-8 my-12">
+      <Helmet>
+        <title>Residence Realm | Login</title>
+      </Helmet>
       <div
         className="hero rounded-2xl"
         style={{

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const EstateDetails = () => {
@@ -28,6 +29,9 @@ const EstateDetails = () => {
 
   return (
     <div className="container mx-auto px-8 my-8">
+      <Helmet>
+        <title>Residence Realm | PropertyDetails</title>
+      </Helmet>
       <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure className="flex flex-1">
           <img src={image} alt="estate" />
