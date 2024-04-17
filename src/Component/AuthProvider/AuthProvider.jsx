@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import PropTypes from "prop-types";
 
@@ -36,6 +37,11 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  const updateUser = (userDetails) => {
+    setLoader(true);
+    return updateProfile(auth.currentUser, userDetails);
+  };
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -52,7 +58,8 @@ const AuthProvider = ({ children }) => {
     user,
     loginWithApps,
     logoutUser,
-    loader
+    updateUser,
+    loader,
   };
 
   return (
