@@ -6,6 +6,7 @@ Features and Characteristics:
 * Registration
 * Login
 * Firebase authentication
+* Update user profile
 * Shows login user on navbar
 
  npm package names:

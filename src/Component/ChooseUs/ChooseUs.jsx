@@ -9,7 +9,7 @@ const ChooseUs = () => {
           <div className="flex flex-1">
             <img
               src="https://i.ibb.co/xgrMqvc/3d-rendering-house-model-1.jpg"
-              className="max-w-lg rounded-lg shadow-2xl"
+              className="lg:max-w-lg rounded-lg lg:shadow-2xl"
             />
           </div>
 
