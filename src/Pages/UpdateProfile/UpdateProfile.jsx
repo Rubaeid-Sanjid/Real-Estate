@@ -27,7 +27,7 @@ const UpdateProfile = () => {
       <div>
         <div className="hero min-h-screen">
           <div className="hero-content flex-col my-6 lg:w-1/2">
-            <div className="text-center lg:text-left">
+            <div className="text-center">
               <h1 className="text-4xl font-bold">Update Your Profile</h1>
             </div>
             <div className="card shrink-0 w-full shadow-2xl bg-base-100">
@@ -39,7 +39,7 @@ const UpdateProfile = () => {
                 <input
                   type="text"
                   name="name"
-                  value={user?.displayName}
+                  defaultValue={user?.displayName}
                   placeholder="name"
                   className="input input-bordered"
                   required
@@ -67,7 +67,7 @@ const UpdateProfile = () => {
                 <input
                   type="text"
                   name="photoURL"
-                  value={user?.photoURL}
+                  defaultValue={user?.photoURL}
                   placeholder="photo URL"
                   className="input input-bordered"
                   required
