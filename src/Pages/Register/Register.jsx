@@ -51,7 +51,7 @@ const Register = () => {
   };
 
   return (
-    <div className="container mx-auto px-8 my-12">
+    <div className="container mx-auto lg:px-8 px-3 my-12">
       <Helmet>
         <title>Residence Realm | Register</title>
       </Helmet>
@@ -67,7 +67,7 @@ const Register = () => {
           <div className="text-center text-white">
             <h1 className="text-5xl font-bold">Register now!</h1>
           </div>
-          <div className="card shrink-0 w-96 shadow-2xl bg-base-100">
+          <div className="card shrink-0 lg:w-96 shadow-2xl bg-base-100">
             <form onSubmit={handleRegister} className="card-body">
               <div className="form-control">
                 <label className="label">

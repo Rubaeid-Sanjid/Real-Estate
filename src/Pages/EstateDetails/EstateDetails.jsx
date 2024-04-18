@@ -28,7 +28,7 @@ const EstateDetails = () => {
   } = cuurentEstate;
 
   return (
-    <div className="container mx-auto px-8 my-8">
+    <div className="container mx-auto lg:px-8 px-3 my-8">
       <Helmet>
         <title>Residence Realm | PropertyDetails</title>
       </Helmet>
@@ -39,7 +39,7 @@ const EstateDetails = () => {
         
         <div className="card-body flex-1">
           <h2 className="card-title text-3xl mb-2">{estate_title}</h2>
-          <p className="text-left mb-2">{description}</p>
+          <p className="text-center lg:text-left mb-2">{description}</p>
           <div className="flex justify-between pt-4 border-t-2">
             <h3 className="font-medium">Property Type</h3>
             <h3>{segment_name}</h3>

@@ -60,7 +60,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container mx-auto px-8 my-12">
+    <div className="container mx-auto lg:px-8 px-3 my-12">
       <Helmet>
         <title>Residence Realm | Login</title>
       </Helmet>
@@ -73,7 +73,7 @@ const Login = () => {
       >
         <div className="hero-overlay rounded-2xl"></div>
         <div className="hero-content flex-col lg:flex-row">
-          <div className="text-center lg:text-left text-white lg:w-1/2 mr-6">
+          <div className="text-center lg:text-left text-white lg:w-1/2 lg:mr-6">
             <h1 className="text-5xl font-bold">Login now!</h1>
             <p className="py-6">
               Unlock exclusive access to personalized property searches, saved

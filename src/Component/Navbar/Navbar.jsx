@@ -18,14 +18,14 @@ const Navbar = () => {
       });
   };
   const navlink = (
-    <div className="text-lg font-semibold flex gap-4">
+    <div className="text-lg font-semibold flex lg:flex-row flex-col gap-4">
       <NavLink to={"/"}>Home</NavLink>
       <NavLink to={"/updateProfile"}>Update Profile</NavLink>
       {user && <NavLink to={"/userProfile"}>User Profile</NavLink>}
     </div>
   );
   return (
-    <div className="navbar bg-[#e5e9ef] px-16 py-3">
+    <div className="navbar bg-[#e5e9ef] lg:px-16 py-3">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -52,8 +52,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex">
-          <img className="w-14 h-14" src={logo} alt="home" />
-          <button className="rounded-xl btn-ghost text-2xl font-bold text-left">
+          <img className="lg:w-14 lg:h-14 w-8 h-8" src={logo} alt="home" />
+          <button className="rounded-xl btn-ghost text-sm lg:text-2xl font-bold text-left">
             Residence
             <br />
             Realm
@@ -67,17 +67,17 @@ const Navbar = () => {
         {user ? (
           <div className="flex gap-2 items-center">
             <div className="avatar">
-              <div className="w-16 rounded-full">
+              <div className="w-10 lg:w-16 rounded-full">
                 <img title={user.displayName} src={user.photoURL} />
               </div>
             </div>
-            <button onClick={handleLogout} className="btn">
+            <button onClick={handleLogout} className="btn bg-[#486df0] text-white h-8 min-h-0 lg:h-12 lg:min-h-12 lg:px-4 px-2">
               Logout
             </button>
           </div>
         ) : (
           <Link to="/login">
-            <button className="btn bg-[#486df0] text-white">Login</button>
+            <button className="btn bg-[#486df0] text-white h-8 min-h-0 lg:h-12 lg:min-h-12 lg:px-4 px-2">Login</button>
           </Link>
         )}
       </div>
